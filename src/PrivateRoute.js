@@ -28,6 +28,6 @@ function PrivateRoute({ children, isLoggedIn, ...rest }) {
   );
 }
 
-const stateToProps = ({isLoggedIn}) => ({isLoggedIn})
+const stateToProps = ({isLoggedIn}) => ({isLoggedIn});
 
 export default connect(stateToProps)(PrivateRoute);

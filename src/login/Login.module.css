@@ -1,15 +1,28 @@
 .container {
-	border: 1px solid;
+	
 }
 
-.input_password {
-
+.input_password, .input_name {
+	width: 300px;
+	margin: auto;
+	display: block;
+	margin-bottom: 20px;
 }
 
 .input_name {
-
+	
 }
 
 .button {
 
+}
+
+.error {
+	margin-bottom: 20px;
+	background: #ea73a533;
+	border: 1px solid #ffc9e0;
+	color: #f73369;
+	padding: 10px;
+	width: 400px;
+	margin: 0 auto 20px;
 }

@@ -8,45 +8,47 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from "react-router-dom";
 import PrivateRoute from './PrivateRoute';
 
-import './App.css';
+import s from './App.module.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className={s.app}>
       <Router>
         <div>
           <nav>
-            <ul>
+            <ul className={s.navigation}>
               <li>
-                <Link to="/">Главная</Link>
+                <NavLink exact to="/" activeClassName={s.active}>Главная</NavLink>
               </li>
               <li>
-                <Link to="/news">Новости</Link>
+                <NavLink to="/news" activeClassName={s.active}>Новости</NavLink>
               </li>
               <li>
-                <Link to="/profile">Профиль</Link>
+                <NavLink to="/profile" activeClassName={s.active}>Профиль</NavLink>
               </li>
             </ul>
           </nav>
 
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/news">
-              <News />
-            </Route>
-            <Route path="/login" render={({history}) => <Login history={history} />} />
-            <PrivateRoute path="/profile">
-              <Profile />
-            </PrivateRoute>
-            <Route path="/">
-              <Main />
-            </Route>
-          </Switch>
+          <div className={s.content_container}>
+            <Switch>
+              <PrivateRoute path="/news">
+                <News />
+              </PrivateRoute>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <PrivateRoute path="/profile">
+                <Profile />
+              </PrivateRoute>
+              <Route path="/">
+                <Main />
+              </Route>
+            </Switch>
+          </div>
         </div>
       </Router>
     </div>

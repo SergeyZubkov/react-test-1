@@ -8,7 +8,7 @@ class News extends Component {
 	render() {
 		return (
 			<div className={s.container}>
-				<h1>News</h1>
+				<h1>Новости</h1>
 				{this.props.news.map(
 					item => <div className={s.item} key={item}> {item} </div>
 				)}
